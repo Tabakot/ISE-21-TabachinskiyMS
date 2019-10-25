@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.createPlane = new System.Windows.Forms.Button();
+            this.createSeaPlane = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.pictureBoxPlane = new System.Windows.Forms.PictureBox();
+            this.createPlane = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).BeginInit();
             this.SuspendLayout();
             // 
-            // createPlane
+            // createSeaPlane
             // 
-            this.createPlane.Location = new System.Drawing.Point(12, 12);
-            this.createPlane.Name = "createPlane";
-            this.createPlane.Size = new System.Drawing.Size(75, 23);
-            this.createPlane.TabIndex = 1;
-            this.createPlane.Text = "Create";
-            this.createPlane.UseVisualStyleBackColor = true;
-            this.createPlane.Click += new System.EventHandler(this.createPlane_Click);
+            this.createSeaPlane.Location = new System.Drawing.Point(764, 41);
+            this.createSeaPlane.Name = "createSeaPlane";
+            this.createSeaPlane.Size = new System.Drawing.Size(102, 23);
+            this.createSeaPlane.TabIndex = 1;
+            this.createSeaPlane.Text = "Create Seaplane";
+            this.createSeaPlane.UseVisualStyleBackColor = true;
+            this.createSeaPlane.Click += new System.EventHandler(this.createSeaPlane_Click);
             // 
             // buttonRight
             // 
@@ -83,12 +84,13 @@
             // buttonUp
             // 
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUp.BackColor = System.Drawing.SystemColors.Control;
             this.buttonUp.BackgroundImage = global::TechProgWin.Properties.Resources.buttonUp;
             this.buttonUp.Location = new System.Drawing.Point(800, 383);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(30, 30);
             this.buttonUp.TabIndex = 2;
-            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.UseVisualStyleBackColor = false;
             this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // pictureBoxPlane
@@ -101,20 +103,32 @@
             this.pictureBoxPlane.TabStop = false;
             this.pictureBoxPlane.Click += new System.EventHandler(this.pictureBoxPlane_Click);
             // 
+            // createPlane
+            // 
+            this.createPlane.Location = new System.Drawing.Point(764, 12);
+            this.createPlane.Name = "createPlane";
+            this.createPlane.Size = new System.Drawing.Size(102, 23);
+            this.createPlane.TabIndex = 6;
+            this.createPlane.Text = "Create Plane";
+            this.createPlane.UseVisualStyleBackColor = true;
+            this.createPlane.Click += new System.EventHandler(this.createPlane_Click);
+            // 
             // FormPlane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.createPlane);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.createPlane);
+            this.Controls.Add(this.createSeaPlane);
             this.Controls.Add(this.pictureBoxPlane);
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormPlane_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.ResumeLayout(false);
 
@@ -123,11 +137,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxPlane;
-        private System.Windows.Forms.Button createPlane;
+        private System.Windows.Forms.Button createSeaPlane;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button createPlane;
     }
 }
 
