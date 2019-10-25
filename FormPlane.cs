@@ -56,7 +56,7 @@ namespace TechProgWin
         {
             Random rnd = new Random();
             plane = new Seaplane(rnd.Next(100, 300), rnd.Next(1000, 2000), 10, Color.YellowGreen,
-           Color.Yellow, false, true, false);
+           Color.Yellow, false, true, false, false, countEngine.Four);
             plane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxPlane.Width,
            pictureBoxPlane.Height);
             Draw();
