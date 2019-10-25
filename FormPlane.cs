@@ -23,7 +23,7 @@ namespace TechProgWin
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxPlane1.Width, pictureBoxPlane.Height);
+            Bitmap bmp = new Bitmap(pictureBoxPlane.Width, pictureBoxPlane.Height);
             Graphics gr = Graphics.FromImage(bmp);
             plane.DrawPlane(gr);
             pictureBoxPlane.Image = bmp;
