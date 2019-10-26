@@ -36,6 +36,7 @@
             this.pictureBoxDock = new System.Windows.Forms.PictureBox();
             this.buttonSetPlane = new System.Windows.Forms.Button();
             this.buttonSetSeaplane = new System.Windows.Forms.Button();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
@@ -98,7 +99,7 @@
             // 
             // buttonSetPlane
             // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(773, 12);
+            this.buttonSetPlane.Location = new System.Drawing.Point(773, 100);
             this.buttonSetPlane.Name = "buttonSetPlane";
             this.buttonSetPlane.Size = new System.Drawing.Size(102, 23);
             this.buttonSetPlane.TabIndex = 12;
@@ -108,7 +109,7 @@
             // 
             // buttonSetSeaplane
             // 
-            this.buttonSetSeaplane.Location = new System.Drawing.Point(773, 41);
+            this.buttonSetSeaplane.Location = new System.Drawing.Point(773, 129);
             this.buttonSetSeaplane.Name = "buttonSetSeaplane";
             this.buttonSetSeaplane.Size = new System.Drawing.Size(102, 23);
             this.buttonSetSeaplane.TabIndex = 11;
@@ -116,11 +117,21 @@
             this.buttonSetSeaplane.UseVisualStyleBackColor = true;
             this.buttonSetSeaplane.Click += new System.EventHandler(this.buttonSetSeaplane_Click);
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(774, 12);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(100, 82);
+            this.listBoxLevels.TabIndex = 13;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
             // FormDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.buttonSetPlane);
             this.Controls.Add(this.buttonSetSeaplane);
             this.Controls.Add(this.pictureBoxDock);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.PictureBox pictureBoxDock;
         private System.Windows.Forms.Button buttonSetPlane;
         private System.Windows.Forms.Button buttonSetSeaplane;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
