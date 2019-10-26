@@ -127,7 +127,7 @@
             this.Controls.Add(this.pictureBoxPlane);
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Seaplane";
             this.Load += new System.EventHandler(this.FormPlane_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.ResumeLayout(false);
