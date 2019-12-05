@@ -14,6 +14,11 @@ namespace TechProgWin
     {
         MultiLevelDock dock;
 
+        /// <summary>
+        /// Форма для добавления
+        /// </summary>
+        FormPlaneConfig form;
+
         private const int countLevel = 5;
 
 
@@ -25,7 +30,7 @@ namespace TechProgWin
             Draw();
             for (int i = 0; i < countLevel; i++)
             {
-                listBoxLevels.Items.Add("Уровень " + (i + 1));
+                listBoxLevels.Items.Add("Level " + (i + 1));
             }
             listBoxLevels.SelectedIndex = 0;
         }
@@ -42,39 +47,16 @@ namespace TechProgWin
 
             }
         }
-           
 
-        private void buttonSetPlane_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
+        /*
+            private void buttonSetPlane_Click(object sender, EventArgs e)
             {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (listBoxLevels.SelectedIndex > -1)
                 {
-                    var plane = new Plane(100, 1000, dialog.Color);
-                    int place = dock[listBoxLevels.SelectedIndex] + plane;
-                    if (place == -1)
+                    ColorDialog dialog = new ColorDialog();
+                    if (dialog.ShowDialog() == DialogResult.OK)
                     {
-                        MessageBox.Show("No free places", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-
-        private void buttonSetSeaplane_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var plane = new Seaplane(100, 1000, 10, dialog.Color,
-                       dialogDop.Color, false, true, false);
+                        var plane = new Plane(100, 1000, dialog.Color);
                         int place = dock[listBoxLevels.SelectedIndex] + plane;
                         if (place == -1)
                         {
@@ -85,8 +67,30 @@ namespace TechProgWin
                     }
                 }
             }
-        }
-       
+            private void buttonSetSeaplane_Click(object sender, EventArgs e)
+            {
+                if (listBoxLevels.SelectedIndex > -1)
+                {
+                    ColorDialog dialog = new ColorDialog();
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        ColorDialog dialogDop = new ColorDialog();
+                        if (dialogDop.ShowDialog() == DialogResult.OK)
+                        {
+                            var plane = new Seaplane(100, 1000, 10, dialog.Color,
+                           dialogDop.Color, false, true, false);
+                            int place = dock[listBoxLevels.SelectedIndex] + plane;
+                            if (place == -1)
+                            {
+                                MessageBox.Show("No free places", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            Draw();
+                        }
+                    }
+                }
+            }*/
+
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -125,6 +129,38 @@ namespace TechProgWin
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        /// <summary>
+        /// Обработка нажатия кнопки "Create"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            form = new FormPlaneConfig();
+            form.AddEvent(AddPlane);
+            form.Show();
+        }
+
+        /// <summary>
+        /// Метод добавления самолета
+        /// </summary>
+        /// <param name="car"></param>
+        private void AddPlane(ITransport plane)
+        {
+            if (plane != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = dock[listBoxLevels.SelectedIndex] + plane;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("failed to create");
+                }
+            }
         }
     }
 }
