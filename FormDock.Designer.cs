@@ -34,12 +34,18 @@
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxDock = new System.Windows.Forms.PictureBox();
-            this.buttonSetPlane = new System.Windows.Forms.Button();
-            this.buttonSetSeaplane = new System.Windows.Forms.Button();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -91,31 +97,11 @@
             // pictureBoxDock
             // 
             this.pictureBoxDock.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxDock.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxDock.Location = new System.Drawing.Point(0, 24);
             this.pictureBoxDock.Name = "pictureBoxDock";
-            this.pictureBoxDock.Size = new System.Drawing.Size(764, 461);
+            this.pictureBoxDock.Size = new System.Drawing.Size(764, 437);
             this.pictureBoxDock.TabIndex = 10;
             this.pictureBoxDock.TabStop = false;
-            // 
-            // buttonSetPlane
-            // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(773, 100);
-            this.buttonSetPlane.Name = "buttonSetPlane";
-            this.buttonSetPlane.Size = new System.Drawing.Size(102, 23);
-            this.buttonSetPlane.TabIndex = 12;
-            this.buttonSetPlane.Text = "Create Plane";
-            this.buttonSetPlane.UseVisualStyleBackColor = true;
-            this.buttonSetPlane.Click += new System.EventHandler(this.buttonSetPlane_Click);
-            // 
-            // buttonSetSeaplane
-            // 
-            this.buttonSetSeaplane.Location = new System.Drawing.Point(773, 129);
-            this.buttonSetSeaplane.Name = "buttonSetSeaplane";
-            this.buttonSetSeaplane.Size = new System.Drawing.Size(102, 23);
-            this.buttonSetSeaplane.TabIndex = 11;
-            this.buttonSetSeaplane.Text = "Create Seaplane";
-            this.buttonSetSeaplane.UseVisualStyleBackColor = true;
-            this.buttonSetSeaplane.Click += new System.EventHandler(this.buttonSetSeaplane_Click);
             // 
             // listBoxLevels
             // 
@@ -126,16 +112,69 @@
             this.listBoxLevels.TabIndex = 13;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Location = new System.Drawing.Point(774, 119);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(101, 36);
+            this.buttonCreate.TabIndex = 14;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "config file | *.conf";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "config file | *.conf";
+            // 
             // FormDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.listBoxLevels);
-            this.Controls.Add(this.buttonSetPlane);
-            this.Controls.Add(this.buttonSetSeaplane);
             this.Controls.Add(this.pictureBoxDock);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormDock";
             this.Text = "Dock";
             this.Load += new System.EventHandler(this.FormDock_Load);
@@ -143,7 +182,10 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -155,8 +197,13 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxDock;
-        private System.Windows.Forms.Button buttonSetPlane;
-        private System.Windows.Forms.Button buttonSetSeaplane;
         private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

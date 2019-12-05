@@ -14,6 +14,11 @@ namespace TechProgWin
     {
         MultiLevelDock dock;
 
+        /// <summary>
+        /// Форма для добавления
+        /// </summary>
+        FormPlaneConfig form;
+
         private const int countLevel = 5;
 
 
@@ -25,7 +30,7 @@ namespace TechProgWin
             Draw();
             for (int i = 0; i < countLevel; i++)
             {
-                listBoxLevels.Items.Add("Уровень " + (i + 1));
+                listBoxLevels.Items.Add("Level " + (i + 1));
             }
             listBoxLevels.SelectedIndex = 0;
         }
@@ -43,7 +48,7 @@ namespace TechProgWin
             }
         }
            
-
+    /*
         private void buttonSetPlane_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -85,7 +90,7 @@ namespace TechProgWin
                     }
                 }
             }
-        }
+        }*/
        
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
@@ -125,6 +130,74 @@ namespace TechProgWin
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        /// <summary>
+        /// Обработка нажатия кнопки "Create"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            form = new FormPlaneConfig();
+            form.AddEvent(AddPlane);
+            form.Show();
+        }
+
+        /// <summary>
+        /// Метод добавления самолета
+        /// </summary>
+        /// <param name="car"></param>
+        private void AddPlane(ITransport plane)
+        {
+            if (plane != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = dock[listBoxLevels.SelectedIndex] + plane;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("failed to create");
+                }
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (dock.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Saved successfully", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Save failed", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (dock.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
+ MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Load failed", "Dock", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                Draw();
+            }
         }
     }
 }

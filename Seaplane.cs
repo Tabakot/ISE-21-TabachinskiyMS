@@ -8,7 +8,7 @@ using System.Drawing;
 namespace TechProgWin
 {
     public class Seaplane : Plane
-    {      
+    {
         public float PropellerWidth;
 
         public Color DopColor { private set; get; }
@@ -20,23 +20,35 @@ namespace TechProgWin
         public bool HiddenPropeller { private set; get; }
 
 
-        public Seaplane(int maxSpeed, float weight, float propellerWidth, Color mainColor, Color dopColor,
-bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, mainColor)
+        public Seaplane(int maxSpeed, float weight, Color mainColor, Color dopColor, float propellerWidth,
+bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mainColor)
 
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
-            PropellerWidth = propellerWidth;
             MainColor = mainColor;
             DopColor = dopColor;
+            PropellerWidth = propellerWidth;
             Wheels = wheels;
             PlaneFloat = planeFloat;
             HiddenPropeller = hiddenPropeller;
         }
 
-       
-
-
+        public Seaplane(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                PropellerWidth = Convert.ToInt32(strs[4]);
+                Wheels = Convert.ToBoolean(strs[5]);
+                PlaneFloat = Convert.ToBoolean(strs[6]);
+                HiddenPropeller = Convert.ToBoolean(strs[7]);
+            }
+        }
 
 
         public override void DrawPlane(Graphics g)
@@ -118,6 +130,16 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, ma
                 g.DrawPolygon(pen, planeFloat);
                 g.FillPolygon(bodyColor, planeFloat);
             }
+        }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+        
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + PropellerWidth + ";" + Wheels + ";" +
+           PlaneFloat + ";" + HiddenPropeller;
         }
 
     }
