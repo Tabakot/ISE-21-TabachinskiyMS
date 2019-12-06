@@ -25,13 +25,13 @@ public class Dock<T> where T : class, ITransport
         }
     }
 
-    public static int operator +(Dock<T> p, T car)
+    public static int operator +(Dock<T> p, T plane)
     {
         for (int i = 0; i < p._places.Length; i++)
         {
             if (p.CheckFreePlace(i))
             {
-                p._places[i] = car;
+                p._places[i] = plane;
                 p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 5,
                  i % 5 * _placeSizeHeight + 15, p.PictureWidth,
                 p.PictureHeight);
@@ -50,9 +50,9 @@ public class Dock<T> where T : class, ITransport
 
         if (!p.CheckFreePlace(index))
         {
-            T car = p._places[index];
+            T plane = p._places[index];
             p._places[index] = null;
-            return car;
+            return plane;
         }
         return null;
     }
