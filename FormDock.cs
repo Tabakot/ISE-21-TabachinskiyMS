@@ -102,12 +102,12 @@ namespace TechProgWin
                 
                 if (dock == Convert.ToInt32(maskedTextBox.Text))
                 {
-                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                    MessageBox.Show("Совпадения найдены", "Результат",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Не сохранилось", "Результат",
+                    MessageBox.Show("Совпадений нет", "Результат",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

@@ -120,5 +120,11 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, ma
             }
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + PropellerWidth + ";" + Wheels + ";" +
+           PlaneFloat + ";" + HiddenPropeller;
+        }
+
     }
 }

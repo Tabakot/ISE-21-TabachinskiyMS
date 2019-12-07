@@ -35,10 +35,8 @@
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.buttonTakePlane = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.buttonFindMatches = new System.Windows.Forms.Button();
             this.pictureBoxTakePlane = new System.Windows.Forms.PictureBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
@@ -101,27 +99,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.maskedTextBox2);
-            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.buttonFindMatches);
             this.groupBox2.Controls.Add(this.buttonTakePlane);
             this.groupBox2.Controls.Add(this.pictureBoxTakePlane);
             this.groupBox2.Controls.Add(this.maskedTextBox);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(773, 260);
+            this.groupBox2.Location = new System.Drawing.Point(773, 283);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(102, 189);
+            this.groupBox2.Size = new System.Drawing.Size(102, 166);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1, 100);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Get a plane";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonFindMatches
             // 
@@ -136,18 +123,11 @@
             // pictureBoxTakePlane
             // 
             this.pictureBoxTakePlane.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxTakePlane.Location = new System.Drawing.Point(1, 124);
+            this.pictureBoxTakePlane.Location = new System.Drawing.Point(1, 101);
             this.pictureBoxTakePlane.Name = "pictureBoxTakePlane";
             this.pictureBoxTakePlane.Size = new System.Drawing.Size(100, 60);
             this.pictureBoxTakePlane.TabIndex = 2;
             this.pictureBoxTakePlane.TabStop = false;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(70, 16);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(18, 20);
-            this.maskedTextBox2.TabIndex = 6;
             // 
             // FormDock
             // 
@@ -177,9 +157,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Button buttonTakePlane;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonFindMatches;
         private System.Windows.Forms.PictureBox pictureBoxTakePlane;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
     }
 }

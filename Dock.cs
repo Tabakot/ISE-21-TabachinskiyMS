@@ -70,7 +70,7 @@ public class Dock<T> where T : class, ITransport
             {
                 continue;
             }
-            if (p._places[i] == p._places[index])
+            if (p._places[i].ToString() == p._places[index].ToString())
             {
                 return true;
             }
@@ -91,7 +91,7 @@ public class Dock<T> where T : class, ITransport
             {
                 continue;
             }
-            if (p._places[i] == p._places[index])
+            if (p._places[i].ToString() == p._places[index].ToString())
             {
                 return false;
             }

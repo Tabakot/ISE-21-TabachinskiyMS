@@ -134,5 +134,10 @@ namespace TechProgWin
             g.FillPolygon(windowColor, planeWindow);
             g.FillRectangle(bodyColor, _startPosX + 59, _startPosY + 5, 2, 8);
         }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor;
+        }
     }
 }
