@@ -56,6 +56,48 @@ public class Dock<T> where T : class, ITransport
         }
         return null;
     }
+     
+    public static bool operator ==(Dock<T> p, int index)
+    {
+        if (index < 0 || index > p._places.Length || p.CheckFreePlace(index))
+        {
+            return false;
+        }
+        
+        for (int i = 0; i < p._places.Length; i++)
+        {
+            if (p.CheckFreePlace(i) || i == index)
+            {
+                continue;
+            }
+            if (p._places[i] == p._places[index])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static bool operator !=(Dock<T> p, int index)
+    {
+        if (index < 0 || index > p._places.Length || p.CheckFreePlace(index))
+        {
+            return false;
+        }
+
+        for (int i = 0; i < p._places.Length; i++)
+        {
+            if (p.CheckFreePlace(i) || i == index)
+            {
+                continue;
+            }
+            if (p._places[i] == p._places[index])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
     private bool CheckFreePlace(int index)
     {

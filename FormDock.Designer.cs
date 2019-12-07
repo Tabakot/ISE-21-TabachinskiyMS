@@ -28,64 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonTakePlane = new System.Windows.Forms.Button();
-            this.pictureBoxTakePlane = new System.Windows.Forms.PictureBox();
-            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxDock = new System.Windows.Forms.PictureBox();
             this.buttonSetPlane = new System.Windows.Forms.Button();
             this.buttonSetSeaplane = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.buttonTakePlane = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonFindMatches = new System.Windows.Forms.Button();
+            this.pictureBoxTakePlane = new System.Windows.Forms.PictureBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.buttonTakePlane);
-            this.groupBox2.Controls.Add(this.pictureBoxTakePlane);
-            this.groupBox2.Controls.Add(this.maskedTextBox);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(773, 310);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(102, 139);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            // 
-            // buttonTakePlane
-            // 
-            this.buttonTakePlane.Location = new System.Drawing.Point(0, 42);
-            this.buttonTakePlane.Name = "buttonTakePlane";
-            this.buttonTakePlane.Size = new System.Drawing.Size(102, 23);
-            this.buttonTakePlane.TabIndex = 3;
-            this.buttonTakePlane.Text = "Get a plane";
-            this.buttonTakePlane.UseVisualStyleBackColor = true;
-            this.buttonTakePlane.Click += new System.EventHandler(this.buttonTakePlane_Click);
-            // 
-            // pictureBoxTakePlane
-            // 
-            this.pictureBoxTakePlane.Location = new System.Drawing.Point(1, 74);
-            this.pictureBoxTakePlane.Name = "pictureBoxTakePlane";
-            this.pictureBoxTakePlane.Size = new System.Drawing.Size(100, 60);
-            this.pictureBoxTakePlane.TabIndex = 2;
-            this.pictureBoxTakePlane.TabStop = false;
-            // 
-            // maskedTextBox
-            // 
-            this.maskedTextBox.Location = new System.Drawing.Point(46, 16);
-            this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(18, 20);
-            this.maskedTextBox.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Place";
             // 
             // pictureBoxDock
             // 
@@ -116,6 +73,82 @@
             this.buttonSetSeaplane.UseVisualStyleBackColor = true;
             this.buttonSetSeaplane.Click += new System.EventHandler(this.buttonSetSeaplane_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Place";
+            // 
+            // maskedTextBox
+            // 
+            this.maskedTextBox.Location = new System.Drawing.Point(46, 16);
+            this.maskedTextBox.Name = "maskedTextBox";
+            this.maskedTextBox.Size = new System.Drawing.Size(18, 20);
+            this.maskedTextBox.TabIndex = 1;
+            // 
+            // buttonTakePlane
+            // 
+            this.buttonTakePlane.Location = new System.Drawing.Point(0, 42);
+            this.buttonTakePlane.Name = "buttonTakePlane";
+            this.buttonTakePlane.Size = new System.Drawing.Size(102, 23);
+            this.buttonTakePlane.TabIndex = 3;
+            this.buttonTakePlane.Text = "Get a plane";
+            this.buttonTakePlane.UseVisualStyleBackColor = true;
+            this.buttonTakePlane.Click += new System.EventHandler(this.buttonTakePlane_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.maskedTextBox2);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.buttonFindMatches);
+            this.groupBox2.Controls.Add(this.buttonTakePlane);
+            this.groupBox2.Controls.Add(this.pictureBoxTakePlane);
+            this.groupBox2.Controls.Add(this.maskedTextBox);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(773, 260);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(102, 189);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Get a plane";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // buttonFindMatches
+            // 
+            this.buttonFindMatches.Location = new System.Drawing.Point(0, 71);
+            this.buttonFindMatches.Name = "buttonFindMatches";
+            this.buttonFindMatches.Size = new System.Drawing.Size(102, 23);
+            this.buttonFindMatches.TabIndex = 4;
+            this.buttonFindMatches.Text = "Find matches";
+            this.buttonFindMatches.UseVisualStyleBackColor = true;
+            this.buttonFindMatches.Click += new System.EventHandler(this.buttonFindMatches_Click);
+            // 
+            // pictureBoxTakePlane
+            // 
+            this.pictureBoxTakePlane.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxTakePlane.Location = new System.Drawing.Point(1, 124);
+            this.pictureBoxTakePlane.Name = "pictureBoxTakePlane";
+            this.pictureBoxTakePlane.Size = new System.Drawing.Size(100, 60);
+            this.pictureBoxTakePlane.TabIndex = 2;
+            this.pictureBoxTakePlane.TabStop = false;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(70, 16);
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(18, 20);
+            this.maskedTextBox2.TabIndex = 6;
+            // 
             // FormDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,23 +161,25 @@
             this.Name = "FormDock";
             this.Text = "Dock";
             this.Load += new System.EventHandler(this.FormDock_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button buttonTakePlane;
-        private System.Windows.Forms.PictureBox pictureBoxTakePlane;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxDock;
         private System.Windows.Forms.Button buttonSetPlane;
         private System.Windows.Forms.Button buttonSetSeaplane;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox;
+        private System.Windows.Forms.Button buttonTakePlane;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonFindMatches;
+        private System.Windows.Forms.PictureBox pictureBoxTakePlane;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
     }
 }

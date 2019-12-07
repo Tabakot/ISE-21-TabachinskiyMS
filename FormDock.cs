@@ -94,5 +94,24 @@ namespace TechProgWin
         {
 
         }
+
+        private void buttonFindMatches_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox.Text != "")
+            {
+                
+                if (dock == Convert.ToInt32(maskedTextBox.Text))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            Draw();
+        }
     }
 }
