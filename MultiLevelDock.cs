@@ -65,22 +65,26 @@ public class MultiLevelDock
                 sw.WriteLine("Level");
                 for (int i = 0; i < countPlaces; i++)
                 {
-                    var plane = level[i];
-                    if (plane != null)
+                    try
                     {
-                        //если место не пустое
-                        //Записываем тип самолета
-                        if (plane.GetType().Name == "Plane")
+                        var plane = level[i];
+                        if (plane != null)
                         {
-                            sw.Write(i + ":Plane:");
+                            //если место не пустое
+                            //Записываем тип самолета
+                            if (plane.GetType().Name == "Plane")
+                            {
+                                sw.Write(i + ":Plane:");
+                            }
+                            if (plane.GetType().Name == "Seaplane")
+                            {
+                                sw.Write(i + ":Seaplane:");
+                            }
+                            //Записываемые параметры
+                            sw.Write(plane + Environment.NewLine);
                         }
-                        if (plane.GetType().Name == "Seaplane")
-                        {
-                            sw.Write(i + ":Seaplane:");
-                        }
-                        //Записываемые параметры
-                        sw.Write(plane + Environment.NewLine);
                     }
+                    finally { }
                 }
             }
         }
@@ -107,9 +111,9 @@ public class MultiLevelDock
     {
         if (!File.Exists(filename))
         {
-            return false;
+            throw new FileNotFoundException();
         }
-        
+
         using (StreamReader sr = new StreamReader(filename))
         {
             int counter = -1;
@@ -128,7 +132,7 @@ public class MultiLevelDock
             else
             {
                 //если нет такой записи, то это не те данные
-                return false;
+                throw new Exception("Wrong file format");
             }
 
             while ((line = sr.ReadLine()) != null)
