@@ -26,31 +26,7 @@ namespace TechProgWin
             plane.DrawPlane(gr);
             pictureBoxPlane.Image = bmp;
         }
-
-        private void pictureBoxPlane_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonUp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonDown_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonLeft_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonRight_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void createPlane_Click(object sender, EventArgs e)
         {

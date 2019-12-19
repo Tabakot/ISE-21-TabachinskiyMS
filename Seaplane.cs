@@ -108,7 +108,6 @@ bool wheels, bool planeFloat, bool hiddenPropeller,bool hiddenEngines, countEngi
         {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             Pen pen = new Pen(Color.Black, 2);
-            //g.DrawRectangle(pen, _startPosX, _startPosY, 100, 65);
             g.DrawRectangle(pen, _startPosX - 5, _startPosY - 6, 10, 13);
             g.DrawEllipse(pen, _startPosX - 5, _startPosY - 6, 15, 23);
 
