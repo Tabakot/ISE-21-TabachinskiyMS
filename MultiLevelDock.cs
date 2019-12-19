@@ -159,50 +159,6 @@ public class MultiLevelDock
 
             }
         }
-        /*bufferTextFromFile = bufferTextFromFile.Replace("\r", "");
-        var strs = bufferTextFromFile.Split('\n');
-        if (strs[0].Contains("CountLeveles"))
-        {
-            //считываем количество уровней
-            int count = Convert.ToInt32(strs[0].Split(':')[1]);
-            if (dockStages != null)
-            {
-                dockStages.Clear();
-            }
-            dockStages = new List<Dock<ITransport>>(count);
-        }
-        else
-        {
-            //если нет такой записи, то это не те данные
-            return false;
-        }
-        int counter = -1;
-        ITransport plane = null;
-        for (int i = 1; i < strs.Length; ++i)
-        {
-            //идем по считанным записям
-            if (strs[i] == "Level")
-            {
-                //начинаем новый уровень
-                counter++;
-                dockStages.Add(new Dock<ITransport>(countPlaces,
-pictureWidth, pictureHeight));
-                continue;
-            }
-            if (string.IsNullOrEmpty(strs[i]))
-            {
-                continue;
-            }
-            if (strs[i].Split(':')[1] == "Plane")
-            {
-                plane = new Plane(strs[i].Split(':')[2]);
-            }
-            else if (strs[i].Split(':')[1] == "Seaplane")
-            {
-                plane = new Seaplane(strs[i].Split(':')[2]);
-            }
-            dockStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = plane;
-        }*/
         return true;
     }
 }

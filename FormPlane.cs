@@ -28,32 +28,6 @@ namespace TechProgWin
             plane.DrawPlane(gr);
             pictureBoxPlane.Image = bmp;
         }
-
-        private void pictureBoxPlane_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonUp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonDown_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonLeft_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonRight_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void createPlane_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -93,11 +67,6 @@ namespace TechProgWin
                     break;
             }
             Draw();
-        }
-
-        private void FormPlane_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -101,7 +101,6 @@
             this.pictureBoxPlane.Size = new System.Drawing.Size(884, 461);
             this.pictureBoxPlane.TabIndex = 0;
             this.pictureBoxPlane.TabStop = false;
-            this.pictureBoxPlane.Click += new System.EventHandler(this.pictureBoxPlane_Click);
             // 
             // createPlane
             // 
@@ -128,7 +127,6 @@
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seaplane";
-            this.Load += new System.EventHandler(this.FormPlane_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.ResumeLayout(false);
 
