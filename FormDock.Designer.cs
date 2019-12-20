@@ -140,7 +140,6 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "FormDock";
             this.Text = "Dock";
-            this.Load += new System.EventHandler(this.FormDock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
