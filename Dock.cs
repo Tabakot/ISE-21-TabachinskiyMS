@@ -10,6 +10,8 @@ namespace TechProgWin
     {
         private Dictionary<int, T> _places;
 
+        private Stack<T> removedPlane;
+
         private int _maxCount;
 
         private int PictureWidth { get; set; }
@@ -24,6 +26,7 @@ namespace TechProgWin
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            removedPlane = new Stack<T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
@@ -39,7 +42,7 @@ namespace TechProgWin
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places[i] = plane;
+                    p._places.Add(i, plane);
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 5,
                      i % 5 * _placeSizeHeight + 15, p.PictureWidth,
                     p.PictureHeight);
@@ -54,6 +57,7 @@ namespace TechProgWin
             if (!p.CheckFreePlace(index))
             {
                 T plane = p._places[index];
+                p.removedPlane.Push(plane);
                 p._places.Remove(index);
                 return plane;
             }
@@ -63,6 +67,11 @@ namespace TechProgWin
         private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
+        }
+
+        public T GetPlaneByKey(int key)
+        {
+            return _places.ContainsKey(key) ? _places[key] : null;
         }
 
         public void Draw(Graphics g)
