@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using TechProgWin;
-public class Dock<T> where T : class, ITransport
+public class Dock<T,E> where T : class, ITransport where E : class, IEngine
 {
     private T[] _places;
 
@@ -25,7 +25,7 @@ public class Dock<T> where T : class, ITransport
         }
     }
 
-    public static int operator +(Dock<T> p, T plane)
+    public static int operator +(Dock<T, E> p, T plane)
     {
         for (int i = 0; i < p._places.Length; i++)
         {
@@ -41,7 +41,7 @@ public class Dock<T> where T : class, ITransport
         return -1;
     }
 
-    public static T operator -(Dock<T> p, int index)
+    public static T operator -(Dock<T, E> p, int index)
     {
         if (index < 0 || index > p._places.Length)
         {
@@ -57,7 +57,7 @@ public class Dock<T> where T : class, ITransport
         return null;
     }
      
-    public static bool operator ==(Dock<T> p, int index)
+    public static bool operator ==(Dock<T, E> p, int index)
     {
         if (index < 0 || index > p._places.Length || p.CheckFreePlace(index))
         {
@@ -78,7 +78,7 @@ public class Dock<T> where T : class, ITransport
         return false;
     }
 
-    public static bool operator !=(Dock<T> p, int index)
+    public static bool operator !=(Dock<T, E> p, int index)
     {
         if (index < 0 || index > p._places.Length || p.CheckFreePlace(index))
         {

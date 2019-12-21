@@ -14,6 +14,5 @@ namespace TechProgWin
         void MoveTransport(Direction direction);
 
         void DrawPlane(Graphics g);
-
     }
 }
