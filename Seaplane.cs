@@ -19,9 +19,11 @@ namespace TechProgWin
 
         public bool HiddenPropeller { private set; get; }
 
+        public CountEngine Count { private set; get; }
+
 
         public Seaplane(int maxSpeed, float weight, float propellerWidth, Color mainColor, Color dopColor,
-bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, mainColor)
+bool wheels, bool planeFloat, bool hiddenPropeller, CountEngine countEngine) : base (maxSpeed, weight, mainColor)
 
         {
             MaxSpeed = maxSpeed;
@@ -32,6 +34,7 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, ma
             Wheels = wheels;
             PlaneFloat = planeFloat;
             HiddenPropeller = hiddenPropeller;
+            Count = countEngine;
         }
 
        
@@ -118,6 +121,24 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, ma
                 g.DrawPolygon(pen, planeFloat);
                 g.FillPolygon(bodyColor, planeFloat);
             }
+
+            IEngine engine;
+            int Type = new Random().Next(0, 3);
+            switch (Type)
+            {
+                case 0:
+                    engine = new WingEngine(_startPosX, _startPosY);
+                    break;
+                case 1:
+                    engine = new FireEngine(_startPosX, _startPosY);
+                    break;
+                default:
+                    engine = new DefaultEngine(_startPosX, _startPosY);
+                    break;
+            }
+
+
+            engine.DrawEngine(Count, g, dopColor);
         }
 
         public override string ToString()
