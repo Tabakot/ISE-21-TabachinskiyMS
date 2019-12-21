@@ -63,29 +63,24 @@ public class MultiLevelDock
             {
                 //Начинаем уровень
                 sw.WriteLine("Level");
-                for (int i = 0; i < countPlaces; i++)
-                {
-                    try
+                foreach(ITransport plane in level)
                     {
-                        var plane = level[i];
                         if (plane != null)
                         {
                             //если место не пустое
                             //Записываем тип самолета
                             if (plane.GetType().Name == "Plane")
                             {
-                                sw.Write(i + ":Plane:");
+                                sw.Write(level.GetKey + ":Plane:");
                             }
                             if (plane.GetType().Name == "Seaplane")
                             {
-                                sw.Write(i + ":Seaplane:");
+                                sw.Write(level.GetKey + ":Seaplane:");
                             }
                             //Записываемые параметры
                             sw.Write(plane + Environment.NewLine);
                         }
                     }
-                    finally { }
-                }
             }
         }
         return true;
@@ -164,6 +159,14 @@ public class MultiLevelDock
             }
         }
         return true;
+    }
+
+    /// <summary>
+    /// Сортировка уровней
+    /// </summary>
+    public void Sort()
+    {
+        dockStages.Sort();
     }
 }
 

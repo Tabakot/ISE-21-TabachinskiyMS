@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DockAlreadyHaveException.cs" />
     <Compile Include="Dock.cs" />
     <Compile Include="FormDock.cs">
       <SubType>Form</SubType>
