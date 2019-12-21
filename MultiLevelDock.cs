@@ -18,13 +18,25 @@ public class MultiLevelDock
         }
     }
 
-    public Dock<ITransport> this[int ind]
+    public Dock<ITransport> this[int index]
+    {
+        get
+        {
+            if (index > -1 && index < dockStages.Count)
+            {
+                return dockStages[index];
+            }
+            return null;
+        }
+    }
+
+    public ITransport this[int ind, int key]
     {
         get
         {
             if (ind > -1 && ind < dockStages.Count)
             {
-                return dockStages[ind];
+                return dockStages[ind].GetPlaneByKey(key);
             }
             return null;
         }
