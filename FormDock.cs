@@ -89,10 +89,5 @@ namespace TechProgWin
                 Draw();
             }
         }
-
-        private void FormDock_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
