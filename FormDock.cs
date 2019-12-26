@@ -48,49 +48,6 @@ namespace TechProgWin
             }
         }
            
-    /*
-        private void buttonSetPlane_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var plane = new Plane(100, 1000, dialog.Color);
-                    int place = dock[listBoxLevels.SelectedIndex] + plane;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("No free places", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-
-        private void buttonSetSeaplane_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var plane = new Seaplane(100, 1000, 10, dialog.Color,
-                       dialogDop.Color, false, true, false);
-                        int place = dock[listBoxLevels.SelectedIndex] + plane;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("No free places", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }*/
        
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
@@ -119,11 +76,6 @@ namespace TechProgWin
                     Draw();
                 }
             }
-
-        }
-
-        private void FormDock_Load(object sender, EventArgs e)
-        {
 
         }
 
