@@ -120,7 +120,17 @@ namespace TechProgWin
         {
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (dock.SaveData(saveFileDialog.FileName))
+                int numberLevel;
+                if (maskedTextBox.Text == "")
+                {
+                    numberLevel = 0;
+                }
+                else
+                {
+                    numberLevel = Convert.ToInt32(maskedTextBox.Text) - 1;
+                }
+
+                if (dock.SaveData(saveFileDialog.FileName, numberLevel))
                 {
                     MessageBox.Show("Saved successfully", "Dock",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -138,7 +148,17 @@ namespace TechProgWin
         {
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (dock.LoadData(openFileDialog.FileName))
+                int numberLevel;
+                if (maskedTextBox.Text == "")
+                {
+                    numberLevel = 0;
+                }
+                else
+                {
+                    numberLevel = Convert.ToInt32(maskedTextBox.Text) - 1;
+                }
+
+                if (dock.LoadData(openFileDialog.FileName, numberLevel))
                 {
                     MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
  MessageBoxIcon.Information);

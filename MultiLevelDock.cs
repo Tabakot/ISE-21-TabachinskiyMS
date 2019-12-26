@@ -48,7 +48,7 @@ public class MultiLevelDock
     /// </summary>
     /// <param name="filename">Путь и имя файла</param>
     /// <returns></returns>
-    public bool SaveData(string filename)
+    public bool SaveData(string filename, int numberLevel)
     {
         if (File.Exists(filename))
         {
@@ -59,10 +59,16 @@ public class MultiLevelDock
         {
             //Записываем количество уровней
             sw.WriteLine("CountLeveles:" + dockStages.Count);
+            int counter = -1;
             foreach (var level in dockStages)
             {
                 //Начинаем уровень
                 sw.WriteLine("Level");
+                counter++;
+                if (numberLevel != 0 && counter != numberLevel)
+                {
+                    continue;
+                }
                 for (int i = 0; i < countPlaces; i++)
                 {
                     var plane = level[i];
@@ -103,13 +109,13 @@ public class MultiLevelDock
     /// </summary>
     /// <param name="filename"></param>
     /// <returns></returns>
-    public bool LoadData(string filename)
+    public bool LoadData(string filename, int numberLevel)
     {
         if (!File.Exists(filename))
         {
             return false;
         }
-        
+
         using (StreamReader sr = new StreamReader(filename))
         {
             int counter = -1;
@@ -142,7 +148,10 @@ public class MultiLevelDock
     pictureWidth, pictureHeight));
                     continue;
                 }
-                
+                if (numberLevel != 0 && counter != numberLevel)
+                {
+                    continue;
+                }
                 string parametr = line.Split(':')[2];
                 if (line.Contains("Plane"))
                 {
