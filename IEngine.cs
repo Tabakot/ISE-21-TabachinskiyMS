@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TechProgWin
 {
-    interface IEngine
+    public interface IEngine
     {
         void DrawEngine(CountEngine countEngine, Graphics g, Brush color);
     }
