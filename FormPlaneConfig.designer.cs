@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBoxPlane = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxType = new System.Windows.Forms.GroupBox();
             this.labelSeaplane = new System.Windows.Forms.Label();
             this.labelPlane = new System.Windows.Forms.Label();
             this.panelPlane = new System.Windows.Forms.Panel();
@@ -47,7 +47,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxType.SuspendLayout();
             this.panelPlane.SuspendLayout();
             this.groupBoxColor.SuspendLayout();
             this.SuspendLayout();
@@ -60,16 +60,16 @@
             this.pictureBoxPlane.TabIndex = 0;
             this.pictureBoxPlane.TabStop = false;
             // 
-            // groupBox1
+            // groupBoxType
             // 
-            this.groupBox1.Controls.Add(this.labelSeaplane);
-            this.groupBox1.Controls.Add(this.labelPlane);
-            this.groupBox1.Location = new System.Drawing.Point(92, 97);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(145, 100);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBoxType.Controls.Add(this.labelSeaplane);
+            this.groupBoxType.Controls.Add(this.labelPlane);
+            this.groupBoxType.Location = new System.Drawing.Point(92, 97);
+            this.groupBoxType.Name = "groupBoxType";
+            this.groupBoxType.Size = new System.Drawing.Size(145, 100);
+            this.groupBoxType.TabIndex = 1;
+            this.groupBoxType.TabStop = false;
+            this.groupBoxType.Text = "Type";
             // 
             // labelSeaplane
             // 
@@ -248,11 +248,11 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.panelPlane);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxType);
             this.Name = "FormPlaneConfig";
-            this.Text = "Form1";
+            this.Text = "Plane config";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxType.ResumeLayout(false);
             this.panelPlane.ResumeLayout(false);
             this.groupBoxColor.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -262,7 +262,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxPlane;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxType;
         private System.Windows.Forms.Label labelSeaplane;
         private System.Windows.Forms.Label labelPlane;
         private System.Windows.Forms.Panel panelPlane;
