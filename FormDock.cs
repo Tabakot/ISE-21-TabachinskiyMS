@@ -117,11 +117,6 @@ namespace TechProgWin
 
         }
 
-        private void FormDock_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
