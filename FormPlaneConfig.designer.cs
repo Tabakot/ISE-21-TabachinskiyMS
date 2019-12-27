@@ -46,6 +46,9 @@
             this.panelWhite = new System.Windows.Forms.Panel();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.labelWingEngine = new System.Windows.Forms.Label();
+            this.labelDefaultEngine = new System.Windows.Forms.Label();
+            this.labelFireEngine = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).BeginInit();
             this.groupBoxType.SuspendLayout();
             this.panelPlane.SuspendLayout();
@@ -239,18 +242,51 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
+            // labelWingEngine
+            // 
+            this.labelWingEngine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelWingEngine.Location = new System.Drawing.Point(302, 46);
+            this.labelWingEngine.Name = "labelWingEngine";
+            this.labelWingEngine.Size = new System.Drawing.Size(124, 23);
+            this.labelWingEngine.TabIndex = 6;
+            this.labelWingEngine.Text = "Wing Engine";
+            this.labelWingEngine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelWingEngine_MouseDown);
+            // 
+            // labelDefaultEngine
+            // 
+            this.labelDefaultEngine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelDefaultEngine.Location = new System.Drawing.Point(172, 46);
+            this.labelDefaultEngine.Name = "labelDefaultEngine";
+            this.labelDefaultEngine.Size = new System.Drawing.Size(124, 23);
+            this.labelDefaultEngine.TabIndex = 7;
+            this.labelDefaultEngine.Text = "Default Engine";
+            this.labelDefaultEngine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelDefaultEngine_MouseDown);
+            // 
+            // labelFireEngine
+            // 
+            this.labelFireEngine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelFireEngine.Location = new System.Drawing.Point(432, 46);
+            this.labelFireEngine.Name = "labelFireEngine";
+            this.labelFireEngine.Size = new System.Drawing.Size(124, 23);
+            this.labelFireEngine.TabIndex = 8;
+            this.labelFireEngine.Text = "Fire Engine";
+            this.labelFireEngine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelFireEngine_MouseDown);
+            // 
             // FormPlaneConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelFireEngine);
+            this.Controls.Add(this.labelDefaultEngine);
+            this.Controls.Add(this.labelWingEngine);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.panelPlane);
             this.Controls.Add(this.groupBoxType);
             this.Name = "FormPlaneConfig";
-            this.Text = "Form1";
+            this.Text = "Plane config";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.groupBoxType.ResumeLayout(false);
             this.panelPlane.ResumeLayout(false);
@@ -279,5 +315,8 @@
         private System.Windows.Forms.Panel panelWhite;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Label labelWingEngine;
+        private System.Windows.Forms.Label labelDefaultEngine;
+        private System.Windows.Forms.Label labelFireEngine;
     }
 }

@@ -6,10 +6,10 @@ using System.Text;
 using TechProgWin;
 public class MultiLevelDock
 {
-    List<Dock<ITransport>> dockStages;
+    List<Dock<ITransport, IEngine>> dockStages;
 
     private const int countPlaces = 20;
-
+   
     /// <summary>
     /// Ширина окна отрисовки
     /// </summary>
@@ -21,23 +21,35 @@ public class MultiLevelDock
 
     public MultiLevelDock(int countStages, int pictureWidth, int pictureHeight)
     {
-        dockStages = new List<Dock<ITransport>>();
+        dockStages = new List<Dock<ITransport, IEngine>>();
         this.pictureWidth = pictureWidth;
         this.pictureHeight = pictureHeight;
         for (int i = 0; i < countStages; ++i)
         {
-            dockStages.Add(new Dock<ITransport>(countPlaces, pictureWidth,
+            dockStages.Add(new Dock<ITransport, IEngine>(countPlaces, pictureWidth,
            pictureHeight));
         }
     }
 
-    public Dock<ITransport> this[int ind]
+    public Dock<ITransport, IEngine> this[int index]
+    {
+        get
+        {
+            if (index > -1 && index < dockStages.Count)
+            {
+                return dockStages[index];
+            }
+            return null;
+    }
+    }
+
+    public ITransport this[int ind, int key]
     {
         get
         {
             if (ind > -1 && ind < dockStages.Count)
             {
-                return dockStages[ind];
+                return dockStages[ind].GetPlaneByKey(key);
             }
             return null;
         }
@@ -129,7 +141,7 @@ public class MultiLevelDock
                 {
                     dockStages.Clear();
                 }
-                dockStages = new List<Dock<ITransport>>(count);
+                dockStages = new List<Dock<ITransport,IEngine>>(count);
             }
             else
             {
@@ -144,7 +156,7 @@ public class MultiLevelDock
                 {
                     //начинаем новый уровень
                     counter++;
-                    dockStages.Add(new Dock<ITransport>(countPlaces,
+                    dockStages.Add(new Dock<ITransport,IEngine>(countPlaces,
     pictureWidth, pictureHeight));
                     continue;
                 }
@@ -167,9 +179,9 @@ public class MultiLevelDock
                 dockStages[counter][Convert.ToInt32(line.Split(':')[0])] = plane;
 
             }
-        }
-        return true;
     }
+        return true;
+}
 }
 
 

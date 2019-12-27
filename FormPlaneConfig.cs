@@ -122,8 +122,27 @@ namespace TechProgWin
                     plane = new Plane(100, 500, Color.White);
                     break;
                 case "Seaplane":
-                    plane = new Seaplane(100, 500, Color.White, Color.Black, 10, false, true, false);
+                    plane = new Seaplane(100, 500, Color.Black, Color.White, 10, false, true, false, CountEngine.Four);
                     break;
+                case "Default Engine":
+                    if (plane is Seaplane)
+                    {
+                        (plane as Seaplane).SetEngineType(3);
+                    }
+                    break;
+                case "Wing Engine":
+                    if (plane is Seaplane)
+                    {
+                        (plane as Seaplane).SetEngineType(0);
+                    }
+                    break;
+                case "Fire Engine":
+                    if (plane is Seaplane)
+                    {
+                        (plane as Seaplane).SetEngineType(1);
+                    }
+                    break;
+
             }
             DrawPlane();
 
@@ -216,6 +235,24 @@ namespace TechProgWin
         {
             eventAddPlane?.Invoke(plane);
             Close();
+        }
+
+        private void labelDefaultEngine_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelDefaultEngine.DoDragDrop(labelDefaultEngine.Text, DragDropEffects.Move |
+                DragDropEffects.Copy);
+        }
+
+        private void labelWingEngine_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelWingEngine.DoDragDrop(labelWingEngine.Text, DragDropEffects.Move |
+                DragDropEffects.Copy);
+        }
+
+        private void labelFireEngine_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelFireEngine.DoDragDrop(labelFireEngine.Text, DragDropEffects.Move |
+                DragDropEffects.Copy);
         }
     }
 }
