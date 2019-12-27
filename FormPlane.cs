@@ -28,7 +28,7 @@ namespace TechProgWin
             plane.DrawPlane(gr);
             pictureBoxPlane.Image = bmp;
         }
-        
+
         private void createPlane_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();

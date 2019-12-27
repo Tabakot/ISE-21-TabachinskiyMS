@@ -101,6 +101,8 @@ namespace TechProgWin
         /// </summary>
         /// <param name="car"></param>
         private void AddPlane(ITransport plane)
+
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (plane != null && listBoxLevels.SelectedIndex > -1)
             {
