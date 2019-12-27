@@ -101,6 +101,8 @@
             this.pictureBoxPlane.Size = new System.Drawing.Size(884, 461);
             this.pictureBoxPlane.TabIndex = 0;
             this.pictureBoxPlane.TabStop = false;
+
+        
             // 
             // createPlane
             // 
@@ -111,6 +113,7 @@
             this.createPlane.Text = "Create Plane";
             this.createPlane.UseVisualStyleBackColor = true;
             this.createPlane.Click += new System.EventHandler(this.createPlane_Click);
+          
             // 
             // FormPlane
             // 
@@ -126,7 +129,9 @@
             this.Controls.Add(this.pictureBoxPlane);
             this.Name = "FormPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
             this.Text = "Seaplane";
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlane)).EndInit();
             this.ResumeLayout(false);
 

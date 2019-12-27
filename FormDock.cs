@@ -47,8 +47,9 @@ namespace TechProgWin
 
             }
         }
-           
+
        
+
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -101,6 +102,10 @@ namespace TechProgWin
         /// </summary>
         /// <param name="car"></param>
         private void AddPlane(ITransport plane)
+
+
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+
         {
             if (plane != null && listBoxLevels.SelectedIndex > -1)
             {
@@ -114,6 +119,7 @@ namespace TechProgWin
                     MessageBox.Show("failed to create");
                 }
             }
+
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
