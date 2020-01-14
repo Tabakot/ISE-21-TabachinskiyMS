@@ -122,7 +122,7 @@ namespace TechProgWin
                     plane = new Plane(100, 500, Color.White);
                     break;
                 case "Seaplane":
-                    plane = new Seaplane(100, 500, Color.White, Color.Black, 10, false, true, false);
+                    plane = new Seaplane(100, 500, Color.Black, Color.White, 10, false, true, false);
                     break;
             }
             DrawPlane();
