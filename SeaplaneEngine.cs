@@ -7,20 +7,13 @@ using System.Threading.Tasks;
 
 namespace TechProgWin
 {
-    public enum countEngine
-    {
-        Four,
-        Five,
-        Six
-    }
-
     class SeaplaneEngine
     {
-        public countEngine engineCount { private get; set; }
+        public СountEngine engineCount { private get; set; }
         float posx = Seaplane._startPosX;
         float posy = Seaplane._startPosY;
 
-        public SeaplaneEngine(countEngine numberOfEngine, float _startPosX, float _startPosY)
+        public SeaplaneEngine(СountEngine numberOfEngine, float _startPosX, float _startPosY)
         {
             engineCount = numberOfEngine;
             posx = _startPosX;
@@ -58,16 +51,16 @@ namespace TechProgWin
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             switch (engineCount)
             {
-                case countEngine.Four:
+                case СountEngine.Four:
                     Engine(g, pen, white, posx + 17, posy + 18);
                     Engine(g, pen, white, posx + 60, posy + 18);
                     break;
-                case countEngine.Five:
+                case СountEngine.Five:
                     Engine(g, pen, white, posx + 50, posy - 8);
                     Engine(g, pen, white, posx + 17, posy + 18);
                     Engine(g, pen, white, posx + 60, posy + 18);
                     break;
-                case countEngine.Six:
+                case СountEngine.Six:
                     Engine(g, pen, white, posx - 5, posy + 6);
                     Engine(g, pen, white, posx + 17, posy + 18);
                     Engine(g, pen, white, posx + 60, posy + 18);

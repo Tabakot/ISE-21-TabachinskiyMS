@@ -21,7 +21,7 @@ namespace TechProgWin
 
         private const int planeHeight = 60;
 
-        public countEngine Engines { private set; get; }
+        public СountEngine Engines { private set; get; }
 
         public float PropellerWidth;
 
@@ -43,7 +43,7 @@ namespace TechProgWin
 
 
         public Seaplane(int maxSpeed, float weight, float propellerWidth, Color mainColor, Color dopColor,
-bool wheels, bool planeFloat, bool hiddenPropeller,bool hiddenEngines, countEngine engine)
+bool wheels, bool planeFloat, bool hiddenPropeller,bool hiddenEngines, СountEngine engine)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;

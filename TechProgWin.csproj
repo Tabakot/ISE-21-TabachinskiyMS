@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountEngine.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormPlane.cs">
       <SubType>Form</SubType>
