@@ -43,6 +43,7 @@ namespace TechProgWin
             PictureHeight = pictureHeight;
         }
 
+
         public static int operator +(Dock<T> p, T plane)
         {
             if (p._places.Count == p._maxCount)
@@ -59,7 +60,7 @@ namespace TechProgWin
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places[i] = plane;
+                    p._places.Add(i, plane);
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 5,
                      i % 5 * _placeSizeHeight + 15, p.PictureWidth,
                     p.PictureHeight);

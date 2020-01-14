@@ -53,8 +53,9 @@ namespace TechProgWin
 
             }
         }
-          
+
        
+
         private void buttonTakePlane_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -93,7 +94,6 @@ namespace TechProgWin
                     }
                 }
             }
-
         }
 
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,6 +140,7 @@ namespace TechProgWin
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TechProgWin
 {
     /// <summary>
-    /// Класс-ошибка "Если не найден автомобиль по определенному месту"
+    /// Класс-ошибка "Если на парковке уже заняты все места"
     /// </summary>
     public class DockOverflowException : Exception
     {
