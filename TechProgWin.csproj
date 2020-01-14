@@ -53,6 +53,11 @@
     <Compile Include="FormDock.Designer.cs">
       <DependentUpon>FormDock.cs</DependentUpon>
     </Compile>
+    <Compile Include="CountEngine.cs" />
+    <Compile Include="DefaultEngine.cs" />
+    <Compile Include="FireEngine.cs" />
+    <Compile Include="IEngine.cs" />
+
     <Compile Include="Plane.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Direction.cs" />
@@ -69,6 +74,7 @@
     <EmbeddedResource Include="FormDock.resx">
       <DependentUpon>FormDock.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="WingEngine.cs" />
     <EmbeddedResource Include="FormPlane.resx">
       <DependentUpon>FormPlane.cs</DependentUpon>
     </EmbeddedResource>

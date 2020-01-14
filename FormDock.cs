@@ -12,12 +12,12 @@ namespace TechProgWin
 {
     public partial class FormDock : Form
     {
-        Dock<ITransport> dock;
+        Dock<ITransport, IEngine> dock;
 
         public FormDock()
         {
             InitializeComponent();
-            dock = new Dock<ITransport>(20, pictureBoxDock.Width,
+            dock = new Dock<ITransport, IEngine>(20, pictureBoxDock.Width,
            pictureBoxDock.Height);
             Draw();
         }
@@ -54,7 +54,7 @@ namespace TechProgWin
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
                     var plane = new Seaplane(100, 1000, 10, dialog.Color, dialogDop.Color, 
-                        false, true, false);
+                        false, true, false, CountEngine.Four);
                     int place = dock + plane;
                     Draw();
                 }
@@ -88,6 +88,25 @@ namespace TechProgWin
                 }
                 Draw();
             }
+        }
+
+        private void buttonFindMatches_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox.Text != "")
+            {
+                
+                if (dock == Convert.ToInt32(maskedTextBox.Text))
+                {
+                    MessageBox.Show("Совпадения найдены", "Результат",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Совпадений нет", "Результат",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            Draw();
         }
     }
 }
