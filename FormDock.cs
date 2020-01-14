@@ -77,7 +77,6 @@ namespace TechProgWin
                     Draw();
                 }
             }
-
         }
 
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
