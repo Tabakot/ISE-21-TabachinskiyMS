@@ -89,7 +89,7 @@ namespace TechProgWin
                 Draw();
             }
         }
-        
+
         private void buttonFindMatches_Click(object sender, EventArgs e)
         {
             if (maskedTextBox.Text != "")

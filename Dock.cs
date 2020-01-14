@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using TechProgWin;
+
 public class Dock<T,E> where T : class, ITransport where E : class, IEngine
 {
     private T[] _places;
@@ -24,6 +25,7 @@ public class Dock<T,E> where T : class, ITransport where E : class, IEngine
             _places[i] = null;
         }
     }
+
 
     public static int operator +(Dock<T, E> p, T plane)
     {
@@ -98,6 +100,7 @@ public class Dock<T,E> where T : class, ITransport where E : class, IEngine
         }
         return true;
     }
+
 
     private bool CheckFreePlace(int index)
     {

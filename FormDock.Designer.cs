@@ -71,6 +71,7 @@
             this.buttonSetSeaplane.UseVisualStyleBackColor = true;
             this.buttonSetSeaplane.Click += new System.EventHandler(this.buttonSetSeaplane_Click);
             // 
+
             // label2
             // 
             this.label2.AutoSize = true;
@@ -144,6 +145,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).EndInit();
+
             this.ResumeLayout(false);
 
         }
@@ -158,5 +160,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonFindMatches;
         private System.Windows.Forms.PictureBox pictureBoxTakePlane;
+
     }
 }
