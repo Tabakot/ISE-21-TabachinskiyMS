@@ -74,7 +74,7 @@ namespace TechProgWin
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
                         var plane = new Seaplane(100, 1000, 10, dialog.Color,
-                       dialogDop.Color, false, true, false);
+                       dialogDop.Color, false, true, false, CountEngine.Four);
                         int place = dock[listBoxLevels.SelectedIndex] + plane;
                         if (place == -1)
                         {

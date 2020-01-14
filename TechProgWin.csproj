@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountEngine.cs" />
+    <Compile Include="DefaultEngine.cs" />
+    <Compile Include="FireEngine.cs" />
+    <Compile Include="IEngine.cs" />
     <Compile Include="Dock.cs" />
     <Compile Include="FormDock.cs">
       <SubType>Form</SubType>
@@ -67,6 +71,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seaplane.cs" />
+    <Compile Include="WingEngine.cs" />
     <EmbeddedResource Include="FormDock.resx">
       <DependentUpon>FormDock.cs</DependentUpon>
     </EmbeddedResource>
