@@ -9,9 +9,9 @@ namespace TechProgWin
 {
     public class Seaplane
     {
-        private float _startPosX;
+        public static float _startPosX;
 
-        private float _startPosY;
+        public static float _startPosY;
 
         private int _pictureWidth;
 
@@ -20,6 +20,8 @@ namespace TechProgWin
         private const int planeWidth = 100;
 
         private const int planeHeight = 60;
+
+        public СountEngine Engines { private set; get; }
 
         public float PropellerWidth;
 
@@ -37,9 +39,11 @@ namespace TechProgWin
 
         public bool HiddenPropeller { private set; get; }
 
+        public bool HiddenEngines { private set; get; }
+
 
         public Seaplane(int maxSpeed, float weight, float propellerWidth, Color mainColor, Color dopColor,
-bool wheels, bool planeFloat, bool hiddenPropeller)
+bool wheels, bool planeFloat, bool hiddenPropeller,bool hiddenEngines, СountEngine engine)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -49,6 +53,8 @@ bool wheels, bool planeFloat, bool hiddenPropeller)
             Wheels = wheels;
             PlaneFloat = planeFloat;
             HiddenPropeller = hiddenPropeller;
+            HiddenEngines = hiddenEngines;
+            Engines = engine;
         }
 
         public void SetPosition(int x, int y, int width, int height)
@@ -100,8 +106,7 @@ bool wheels, bool planeFloat, bool hiddenPropeller)
 
         public void DrawPlane(Graphics g)
         {
-            g.SmoothingMode =
-       System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             Pen pen = new Pen(Color.Black, 2);
             g.DrawRectangle(pen, _startPosX - 5, _startPosY - 6, 10, 13);
             g.DrawEllipse(pen, _startPosX - 5, _startPosY - 6, 15, 23);
@@ -242,6 +247,12 @@ bool wheels, bool planeFloat, bool hiddenPropeller)
             Brush windowColor = new SolidBrush(Color.RoyalBlue);
             g.FillPolygon(windowColor, planeWindow);
             g.FillRectangle(bodyColor, _startPosX + 59, _startPosY + 5, 2, 8);
+
+            if (!HiddenEngines)
+            {
+                SeaplaneEngine engine = new SeaplaneEngine(Engines, _startPosX, _startPosY);
+                engine.DrawEngine(g);
+            }
         }
 
     }
