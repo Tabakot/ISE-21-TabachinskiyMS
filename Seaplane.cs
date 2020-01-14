@@ -8,7 +8,7 @@ using System.Drawing;
 namespace TechProgWin
 {
     public class Seaplane : Plane
-    {
+    {      
         public float PropellerWidth;
 
         public Color DopColor { private set; get; }
@@ -19,9 +19,13 @@ namespace TechProgWin
 
         public bool HiddenPropeller { private set; get; }
 
+        public CountEngine Count { private set; get; }
+        
+        public int Type;
+
 
         public Seaplane(int maxSpeed, float weight, Color mainColor, Color dopColor, float propellerWidth,
-bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mainColor)
+bool wheels, bool planeFloat, bool hiddenPropeller, CountEngine countEngine) : base (maxSpeed, weight, mainColor)
 
         {
             MaxSpeed = maxSpeed;
@@ -32,6 +36,9 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
             Wheels = wheels;
             PlaneFloat = planeFloat;
             HiddenPropeller = hiddenPropeller;
+            Count = countEngine;
+
+            Type = 3;
         }
 
         public override void DrawPlane(Graphics g)
@@ -113,10 +120,33 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
                 g.DrawPolygon(pen, planeFloat);
                 g.FillPolygon(bodyColor, planeFloat);
             }
+
+
+            IEngine engine;
+
+            switch (Type)
+            {
+                case 0:
+                    engine = new WingEngine(_startPosX, _startPosY);
+                    break;
+                case 1:
+                    engine = new FireEngine(_startPosX, _startPosY);
+                    break;
+                default:
+                    engine = new DefaultEngine(_startPosX, _startPosY);
+                    break;
+            }
+            engine.DrawEngine(Count, g, dopColor);
         }
+
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public void SetEngineType(int type)
+        {
+            Type = type;
         }
     }
 }
