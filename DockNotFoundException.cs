@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TechProgWin
 {
     /// <summary>
-    /// Класс-ошибка "Если не найден автомобиль по определенному месту"
+    /// Класс-ошибка "Если не найден самолет по определенному месту"
     /// </summary>
     public class DockNotFoundException : Exception
     {
