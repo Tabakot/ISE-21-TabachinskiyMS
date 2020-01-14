@@ -8,7 +8,7 @@ using System.Drawing;
 namespace TechProgWin
 {
     public class Seaplane : Plane
-    {      
+    {
         public float PropellerWidth;
 
         public Color DopColor { private set; get; }
@@ -20,24 +20,19 @@ namespace TechProgWin
         public bool HiddenPropeller { private set; get; }
 
 
-        public Seaplane(int maxSpeed, float weight, float propellerWidth, Color mainColor, Color dopColor,
-bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, mainColor)
+        public Seaplane(int maxSpeed, float weight, Color mainColor, Color dopColor, float propellerWidth,
+bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mainColor)
 
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
-            PropellerWidth = propellerWidth;
             MainColor = mainColor;
             DopColor = dopColor;
+            PropellerWidth = propellerWidth;
             Wheels = wheels;
             PlaneFloat = planeFloat;
             HiddenPropeller = hiddenPropeller;
         }
-
-       
-
-
-
 
         public override void DrawPlane(Graphics g)
         {
@@ -119,6 +114,9 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base (maxSpeed, weight, ma
                 g.FillPolygon(bodyColor, planeFloat);
             }
         }
-
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
     }
 }

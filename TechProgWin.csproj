@@ -53,6 +53,12 @@
     <Compile Include="FormDock.Designer.cs">
       <DependentUpon>FormDock.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlaneConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlaneConfig.designer.cs">
+      <DependentUpon>FormPlaneConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="MultiLevelDock.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Vehicle.cs" />
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlane.resx">
       <DependentUpon>FormPlane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlaneConfig.resx">
+      <DependentUpon>FormPlaneConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

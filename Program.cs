@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace TechProgWin
 {
+
+    public delegate void planeDelegate(ITransport plane);
+
     static class Program
     {
         /// <summary>

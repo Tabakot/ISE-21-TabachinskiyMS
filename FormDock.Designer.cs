@@ -34,9 +34,8 @@
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxDock = new System.Windows.Forms.PictureBox();
-            this.buttonSetPlane = new System.Windows.Forms.Button();
-            this.buttonSetSeaplane = new System.Windows.Forms.Button();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonCreate = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
@@ -97,26 +96,6 @@
             this.pictureBoxDock.TabIndex = 10;
             this.pictureBoxDock.TabStop = false;
             // 
-            // buttonSetPlane
-            // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(773, 100);
-            this.buttonSetPlane.Name = "buttonSetPlane";
-            this.buttonSetPlane.Size = new System.Drawing.Size(102, 23);
-            this.buttonSetPlane.TabIndex = 12;
-            this.buttonSetPlane.Text = "Create Plane";
-            this.buttonSetPlane.UseVisualStyleBackColor = true;
-            this.buttonSetPlane.Click += new System.EventHandler(this.buttonSetPlane_Click);
-            // 
-            // buttonSetSeaplane
-            // 
-            this.buttonSetSeaplane.Location = new System.Drawing.Point(773, 129);
-            this.buttonSetSeaplane.Name = "buttonSetSeaplane";
-            this.buttonSetSeaplane.Size = new System.Drawing.Size(102, 23);
-            this.buttonSetSeaplane.TabIndex = 11;
-            this.buttonSetSeaplane.Text = "Create Seaplane";
-            this.buttonSetSeaplane.UseVisualStyleBackColor = true;
-            this.buttonSetSeaplane.Click += new System.EventHandler(this.buttonSetSeaplane_Click);
-            // 
             // listBoxLevels
             // 
             this.listBoxLevels.FormattingEnabled = true;
@@ -126,14 +105,23 @@
             this.listBoxLevels.TabIndex = 13;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Location = new System.Drawing.Point(774, 119);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(101, 36);
+            this.buttonCreate.TabIndex = 14;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
             // FormDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.listBoxLevels);
-            this.Controls.Add(this.buttonSetPlane);
-            this.Controls.Add(this.buttonSetSeaplane);
             this.Controls.Add(this.pictureBoxDock);
             this.Controls.Add(this.groupBox2);
             this.Name = "FormDock";
@@ -154,8 +142,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxDock;
-        private System.Windows.Forms.Button buttonSetPlane;
-        private System.Windows.Forms.Button buttonSetSeaplane;
         private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonCreate;
     }
 }

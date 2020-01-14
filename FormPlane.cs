@@ -41,8 +41,8 @@ namespace TechProgWin
         private void createSeaPlane_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            plane = new Seaplane(rnd.Next(100, 300), rnd.Next(1000, 2000), 10, Color.YellowGreen,
-           Color.Yellow, false, true, false);
+            plane = new Seaplane(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.YellowGreen,
+           Color.Yellow, 10, false, true, false);
             plane.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxPlane.Width,
            pictureBoxPlane.Height);
             Draw();
