@@ -53,6 +53,7 @@
     <Compile Include="FormDock.Designer.cs">
       <DependentUpon>FormDock.cs</DependentUpon>
     </Compile>
+    <Compile Include="MultiLevelDock.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Direction.cs" />
