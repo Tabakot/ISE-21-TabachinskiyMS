@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TechProgWin
 {
     /// <summary>
-    /// Класс-ошибка "Если место, на которое хотим поставить автомобиль уже занято"
+    /// Класс-ошибка "Если место, на которое хотим поставить самолет уже занято"
     /// </summary>
     public class DockOccupiedPlaceException : Exception
     {
