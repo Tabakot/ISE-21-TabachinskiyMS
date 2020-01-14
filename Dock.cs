@@ -29,25 +29,18 @@ namespace TechProgWin
         }
 
 
-    public static int operator +(Dock<T> p, T plane)
-    {
-        for (int i = 0; i < p._places.Length; i++)
+        public static int operator +(Dock<T> p, T plane)
         {
             if (p._places.Count == p._maxCount)
             {
                 return -1;
-                p._places[i] = plane;
-                p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 5,
-                 i % 5 * _placeSizeHeight + 15, p.PictureWidth,
-                p.PictureHeight);
-                return i;
             }
 
             for (int i = 0; i < p._maxCount; i++)
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places[i] = plane;
+                    p._places.Add(i, plane);
                     p._places[i].SetPosition(5 + i / 5 * _placeSizeWidth + 5,
                      i % 5 * _placeSizeHeight + 15, p.PictureWidth,
                     p.PictureHeight);
@@ -71,9 +64,6 @@ namespace TechProgWin
         private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
-            T plane = p._places[index];
-            p._places[index] = null;
-            return plane;
         }
 
         public void Draw(Graphics g)
