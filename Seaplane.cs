@@ -34,6 +34,23 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
             HiddenPropeller = hiddenPropeller;
         }
 
+
+        public Seaplane(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                PropellerWidth = Convert.ToInt32(strs[4]);
+                Wheels = Convert.ToBoolean(strs[5]);
+                PlaneFloat = Convert.ToBoolean(strs[6]);
+                HiddenPropeller = Convert.ToBoolean(strs[7]);
+            }
+        }
+
         public override void DrawPlane(Graphics g)
         {
             g.SmoothingMode =
@@ -117,6 +134,12 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + PropellerWidth + ";" + Wheels + ";" +
+           PlaneFloat + ";" + HiddenPropeller;
         }
     }
 }

@@ -102,6 +102,7 @@
             this.pictureBoxPlane.TabIndex = 0;
             this.pictureBoxPlane.TabStop = false;
 
+        
             // 
             // createPlane
             // 

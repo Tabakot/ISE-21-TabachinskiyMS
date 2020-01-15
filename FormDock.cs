@@ -47,6 +47,7 @@ namespace TechProgWin
 
             }
         }
+
        
 
         private void buttonTakePlane_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace TechProgWin
                 }
             }
         }
-        
+
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
@@ -112,6 +113,43 @@ namespace TechProgWin
                 {
                     MessageBox.Show("failed to create");
                 }
+            }
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (dock.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Saved successfully", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Save failed", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (dock.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
+ MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Load failed", "Dock", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                Draw();
             }
         }
     }

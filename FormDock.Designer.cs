@@ -36,9 +36,16 @@
             this.pictureBoxDock = new System.Windows.Forms.PictureBox();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.buttonCreate = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -90,9 +97,9 @@
             // pictureBoxDock
             // 
             this.pictureBoxDock.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxDock.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxDock.Location = new System.Drawing.Point(0, 24);
             this.pictureBoxDock.Name = "pictureBoxDock";
-            this.pictureBoxDock.Size = new System.Drawing.Size(764, 461);
+            this.pictureBoxDock.Size = new System.Drawing.Size(764, 437);
             this.pictureBoxDock.TabIndex = 10;
             this.pictureBoxDock.TabStop = false;
             // 
@@ -115,6 +122,48 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(884, 24);
+            this.menuStrip.TabIndex = 15;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.FileName = "Save";
+            this.saveFileDialog.Filter = "config file | *.conf";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "config file | *.conf";
+            // 
             // FormDock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,13 +173,18 @@
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.pictureBoxDock);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "FormDock";
             this.Text = "Dock";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,5 +198,14 @@
         private System.Windows.Forms.PictureBox pictureBoxDock;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Button buttonCreate;
+
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+
     }
 }
