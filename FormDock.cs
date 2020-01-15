@@ -132,7 +132,6 @@ namespace TechProgWin
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -140,6 +139,47 @@ namespace TechProgWin
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if (dock.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
+ MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Load failed", "Dock", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+                Draw();
+            }
+        }
+
+        private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                int numberLevel;
+                numberLevel = Convert.ToInt32(listBoxLevels.SelectedIndex);
+
+                if (dock.SaveLevel(saveFileDialog.FileName, numberLevel))
+                {
+                    MessageBox.Show("Saved successfully", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Save failed", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void loadLevelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                int numberLevel;
+                numberLevel = Convert.ToInt32(listBoxLevels.SelectedIndex);
+
+                if (dock.LoadLevel(openFileDialog.FileName, numberLevel))
                 {
                     MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
  MessageBoxIcon.Information);
