@@ -176,7 +176,7 @@ namespace TechProgWin
         /// </summary>
         public void Dispose()
         {
-            //_places.Clear();
+            _places.Clear();
         }
 
         /// <summary>
