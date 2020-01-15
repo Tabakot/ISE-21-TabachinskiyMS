@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,10 +22,15 @@ namespace TechProgWin
 
         private const int countLevel = 5;
 
+        /// <summary>
+        /// Логгер
+        /// </summary>
+        private Logger logger;
 
         public FormDock()
         {
             InitializeComponent();
+            logger = LogManager.GetCurrentClassLogger();
             dock = new MultiLevelDock(countLevel, pictureBoxDock.Width,
                 pictureBoxDock.Height);
             Draw();
@@ -56,10 +62,10 @@ namespace TechProgWin
             {
                 if (maskedTextBox.Text != "")
                 {
-                    var plane = dock[listBoxLevels.SelectedIndex] -
-                   Convert.ToInt32(maskedTextBox.Text);
-                    if (plane != null)
+                    try
                     {
+                        var plane = dock[listBoxLevels.SelectedIndex] -
+                   Convert.ToInt32(maskedTextBox.Text);
                         Bitmap bmp = new Bitmap(pictureBoxTakePlane.Width,
                        pictureBoxTakePlane.Height);
                         Graphics gr = Graphics.FromImage(bmp);
@@ -67,14 +73,25 @@ namespace TechProgWin
                        pictureBoxTakePlane.Height);
                         plane.DrawPlane(gr);
                         pictureBoxTakePlane.Image = bmp;
+                        logger.Info("Pick up a plane " + plane.ToString() + " place: " 
+                            + maskedTextBox.Text);
+                        Draw();
                     }
-                    else
+                    catch (DockNotFoundException ex)
                     {
+                        logger.Error(ex.Message);
+                        MessageBox.Show(ex.Message, "Not found", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                         Bitmap bmp = new Bitmap(pictureBoxTakePlane.Width,
                        pictureBoxTakePlane.Height);
                         pictureBoxTakePlane.Image = bmp;
                     }
-                    Draw();
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex.Message);
+                        MessageBox.Show(ex.Message, "Unknown error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -99,19 +116,28 @@ namespace TechProgWin
         /// <summary>
         /// Метод добавления самолета
         /// </summary>
-        /// <param name="car"></param>
+        /// <param name="plane"></param>
         private void AddPlane(ITransport plane)
         {
             if (plane != null && listBoxLevels.SelectedIndex > -1)
             {
-                int place = dock[listBoxLevels.SelectedIndex] + plane;
-                if (place > -1)
+                try
                 {
+                    int place = dock[listBoxLevels.SelectedIndex] + plane;
+                    logger.Info("Add plane " + plane.ToString() + " place: " + place);
                     Draw();
                 }
-                else
+                catch (DockOverflowException ex)
                 {
-                    MessageBox.Show("failed to create");
+                    logger.Error(ex.Message);
+                    MessageBox.Show(ex.Message, "Overflow", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.Message);
+                    MessageBox.Show(ex.Message, "Unknown error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -121,15 +147,17 @@ namespace TechProgWin
         {
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (dock.SaveData(saveFileDialog.FileName))
-                {
+                try {
+                    dock.SaveData(saveFileDialog.FileName);
                     MessageBox.Show("Saved successfully", "Dock",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Save file " + saveFileDialog.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Save failed", "Dock",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Error(ex.Message);
+                    MessageBox.Show(ex.Message, "Save failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -139,15 +167,24 @@ namespace TechProgWin
         {
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (dock.LoadData(openFileDialog.FileName))
+                try
                 {
+                dock.LoadData(openFileDialog.FileName);
                     MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
- MessageBoxIcon.Information);
+                        MessageBoxIcon.Information);
+                    logger.Info("Loaded from file " + openFileDialog.FileName);
                 }
-                else
+                catch (DockOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Load failed", "Dock", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    logger.Error(ex.Message);
+                    MessageBox.Show(ex.Message, "Load failed", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.Message);
+                    MessageBox.Show(ex.Message, "Unknown error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Draw();
             }

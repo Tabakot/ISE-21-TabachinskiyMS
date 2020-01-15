@@ -33,7 +33,7 @@ namespace TechProgWin
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new DockOverflowException();
             }
 
             for (int i = 0; i < p._maxCount; i++)
@@ -58,7 +58,7 @@ namespace TechProgWin
                 p._places.Remove(index);
                 return plane;
             }
-            return null;
+            throw new DockNotFoundException(index);
         }
 
         private bool CheckFreePlace(int index)
@@ -111,7 +111,7 @@ namespace TechProgWin
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new DockNotFoundException(ind);
             }
             set
             {
@@ -121,6 +121,11 @@ namespace TechProgWin
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5
                     * _placeSizeHeight + 15, PictureWidth, PictureHeight);
                 }
+                else
+                {
+                    throw new DockOccupiedPlaceException(ind);
+                }
+
             }
         }
     }

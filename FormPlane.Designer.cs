@@ -101,8 +101,7 @@
             this.pictureBoxPlane.Size = new System.Drawing.Size(884, 461);
             this.pictureBoxPlane.TabIndex = 0;
             this.pictureBoxPlane.TabStop = false;
-
-        
+    
             // 
             // createPlane
             // 
