@@ -9,7 +9,7 @@ namespace TechProgWin
     /// <summary>
     /// Класс-ошибка "Если место, на которое хотим поставить самолет уже занято"
     /// </summary>
-    public class DockOccupiedPlaceException : Exception
+    public class DockOccupiedPlaceException : InvalidOperationException
     {
         public DockOccupiedPlaceException(int i) : base("Place " + i + " is already taken")
         { }
