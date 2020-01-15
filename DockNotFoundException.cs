@@ -9,7 +9,7 @@ namespace TechProgWin
     /// <summary>
     /// Класс-ошибка "Если не найден самолет по определенному месту"
     /// </summary>
-    public class DockNotFoundException : Exception
+    public class DockNotFoundException : ArgumentNullException
     {
         public DockNotFoundException(int i) : base("Not found on place "
        + i)

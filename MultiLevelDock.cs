@@ -6,10 +6,10 @@ using System.Text;
 using TechProgWin;
 public class MultiLevelDock
 {
-    List<Dock<ITransport>> dockStages;
+    List<Dock<ITransport, IEngine>> dockStages;
 
     private const int countPlaces = 20;
-
+   
     /// <summary>
     /// Ширина окна отрисовки
     /// </summary>
@@ -21,23 +21,35 @@ public class MultiLevelDock
 
     public MultiLevelDock(int countStages, int pictureWidth, int pictureHeight)
     {
-        dockStages = new List<Dock<ITransport>>();
+        dockStages = new List<Dock<ITransport, IEngine>>();
         this.pictureWidth = pictureWidth;
         this.pictureHeight = pictureHeight;
         for (int i = 0; i < countStages; ++i)
         {
-            dockStages.Add(new Dock<ITransport>(countPlaces, pictureWidth,
+            dockStages.Add(new Dock<ITransport, IEngine>(countPlaces, pictureWidth,
            pictureHeight));
         }
     }
 
-    public Dock<ITransport> this[int ind]
+    public Dock<ITransport, IEngine> this[int index]
+    {
+        get
+        {
+            if (index > -1 && index < dockStages.Count)
+            {
+                return dockStages[index];
+            }
+            return null;
+        }
+    }
+
+    public ITransport this[int ind, int key]
     {
         get
         {
             if (ind > -1 && ind < dockStages.Count)
             {
-                return dockStages[ind];
+                return dockStages[ind].GetPlaneByKey(key);
             }
             return null;
         }
@@ -63,6 +75,7 @@ public class MultiLevelDock
             {
                 //Начинаем уровень
                 sw.WriteLine("Level");
+
                 for (int i = 0; i < countPlaces; i++)
                 {
                     try
@@ -116,7 +129,7 @@ public class MultiLevelDock
                 {
                     dockStages.Clear();
                 }
-                dockStages = new List<Dock<ITransport>>(count);
+                dockStages = new List<Dock<ITransport,IEngine>>(count);
             }
             else
             {
@@ -131,11 +144,10 @@ public class MultiLevelDock
                 {
                     //начинаем новый уровень
                     counter++;
-                    dockStages.Add(new Dock<ITransport>(countPlaces,
+                    dockStages.Add(new Dock<ITransport,IEngine>(countPlaces,
     pictureWidth, pictureHeight));
                     continue;
                 }
-                
                 string parametr = line.Split(':')[2];
                 if (line.Contains("Plane"))
                 {
@@ -149,6 +161,71 @@ public class MultiLevelDock
                 }
 
                 dockStages[counter][Convert.ToInt32(line.Split(':')[0])] = plane;
+
+            }
+        }
+        return true;
+    }
+
+    public bool SaveLevel(string filename, int levelnumber)
+    {
+        if (File.Exists(filename))
+        {
+            File.Delete(filename);
+        }
+        var level = dockStages[levelnumber];
+        using (StreamWriter sw = new StreamWriter(filename))
+        {
+            for (int i = 0; i < countPlaces; i++)
+            {
+                var plane = level[i];
+                if (plane != null)
+                {
+                    //если место не пустое
+                    //Записываем тип самолета
+                    if (plane.GetType().Name == "Plane")
+                    {
+                        sw.Write(i + ":Plane:");
+                    }
+                    if (plane.GetType().Name == "Seaplane")
+                    {
+                        sw.Write(i + ":Seaplane:");
+                    }
+                    //Записываемые параметры
+                    sw.Write(plane + Environment.NewLine);
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool LoadLevel(string filename, int levelnumber)
+    {
+        if (!File.Exists(filename))
+        {
+            return false;
+        }
+        dockStages[levelnumber].ClearLevel();
+        using (StreamReader sr = new StreamReader(filename))
+        {
+            ITransport plane = null;
+            string line;
+           
+            while ((line = sr.ReadLine()) != null)
+            {
+                string parametr = line.Split(':')[2];
+                if (line.Contains("Plane"))
+                {
+                    Console.WriteLine(parametr);
+                    plane = new Plane(parametr);
+                }
+                else if (line.Contains("Seaplane"))
+                {
+                    Console.WriteLine(parametr);
+                    plane = new Seaplane(parametr);
+                }
+
+                dockStages[levelnumber][Convert.ToInt32(line.Split(':')[0])] = plane;
 
             }
         }

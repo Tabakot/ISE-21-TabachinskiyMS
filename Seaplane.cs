@@ -8,7 +8,7 @@ using System.Drawing;
 namespace TechProgWin
 {
     public class Seaplane : Plane
-    {
+    {      
         public float PropellerWidth;
 
         public Color DopColor { private set; get; }
@@ -19,9 +19,13 @@ namespace TechProgWin
 
         public bool HiddenPropeller { private set; get; }
 
+        public CountEngine Count { private set; get; }
+
+        public int Type;
+
 
         public Seaplane(int maxSpeed, float weight, Color mainColor, Color dopColor, float propellerWidth,
-bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mainColor)
+bool wheels, bool planeFloat, bool hiddenPropeller, CountEngine countEngine) : base (maxSpeed, weight, mainColor)
 
         {
             MaxSpeed = maxSpeed;
@@ -32,13 +36,16 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
             Wheels = wheels;
             PlaneFloat = planeFloat;
             HiddenPropeller = hiddenPropeller;
+            Count = countEngine;
+
+            Type = 3;
         }
 
 
         public Seaplane(string info) : base(info)
         {
             string[] strs = info.Split(';');
-            if (strs.Length == 8)
+            if (strs.Length == 10)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
@@ -48,6 +55,19 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
                 Wheels = Convert.ToBoolean(strs[5]);
                 PlaneFloat = Convert.ToBoolean(strs[6]);
                 HiddenPropeller = Convert.ToBoolean(strs[7]);
+                if (strs[8] == "Four")
+                {
+                    Count = CountEngine.Four;
+                }
+                else if (strs[8] == "Five")
+                {
+                    Count = CountEngine.Five;
+                }
+                else if (strs[8] == "Six")
+                {
+                    Count = CountEngine.Six;
+                }
+                Type = Convert.ToInt32(strs[9]);
             }
         }
 
@@ -130,7 +150,25 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
                 g.DrawPolygon(pen, planeFloat);
                 g.FillPolygon(bodyColor, planeFloat);
             }
+
+
+            IEngine engine;
+
+            switch (Type)
+            {
+                case 0:
+                    engine = new WingEngine(_startPosX, _startPosY);
+                    break;
+                case 1:
+                    engine = new FireEngine(_startPosX, _startPosY);
+                    break;
+                default:
+                    engine = new DefaultEngine(_startPosX, _startPosY);
+                    break;
+            }
+            engine.DrawEngine(Count, g, dopColor);
         }
+
         public void SetDopColor(Color color)
         {
             DopColor = color;
@@ -139,7 +177,12 @@ bool wheels, bool planeFloat, bool hiddenPropeller) : base(maxSpeed, weight, mai
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + PropellerWidth + ";" + Wheels + ";" +
-           PlaneFloat + ";" + HiddenPropeller;
+           PlaneFloat + ";" + HiddenPropeller + ";" + Count + ";" + Type;
+        }
+
+        public void SetEngineType(int type)
+        {
+            Type = type;
         }
     }
 }
