@@ -120,17 +120,7 @@ namespace TechProgWin
         {
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                int numberLevel;
-                if (maskedTextBox.Text == "")
-                {
-                    numberLevel = 0;
-                }
-                else
-                {
-                    numberLevel = Convert.ToInt32(maskedTextBox.Text) - 1;
-                }
-
-                if (dock.SaveData(saveFileDialog.FileName, numberLevel))
+                if (dock.SaveData(saveFileDialog.FileName))
                 {
                     MessageBox.Show("Saved successfully", "Dock",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -141,24 +131,54 @@ namespace TechProgWin
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                int numberLevel;
-                if (maskedTextBox.Text == "")
+                if (dock.LoadData(openFileDialog.FileName))
                 {
-                    numberLevel = 0;
+                    MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
+ MessageBoxIcon.Information);
                 }
                 else
                 {
-                    numberLevel = Convert.ToInt32(maskedTextBox.Text) - 1;
+                    MessageBox.Show("Load failed", "Dock", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
                 }
+                Draw();
+            }
+        }
 
-                if (dock.LoadData(openFileDialog.FileName, numberLevel))
+        private void saveLevelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                int numberLevel;
+                numberLevel = Convert.ToInt32(listBoxLevels.SelectedIndex);
+
+                if (dock.SaveLevel(saveFileDialog.FileName, numberLevel))
+                {
+                    MessageBox.Show("Saved successfully", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Save failed", "Dock",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void loadLevelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                int numberLevel;
+                numberLevel = Convert.ToInt32(listBoxLevels.SelectedIndex);
+
+                if (dock.LoadLevel(openFileDialog.FileName, numberLevel))
                 {
                     MessageBox.Show("Loaded successfully", "Dock", MessageBoxButtons.OK,
  MessageBoxIcon.Information);

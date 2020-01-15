@@ -131,5 +131,10 @@ namespace TechProgWin
                 }
             }
         }
+
+        public void ClearLevel()
+        {
+            _places.Clear();
+        }
     }
 }
