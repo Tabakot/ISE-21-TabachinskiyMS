@@ -41,6 +41,7 @@ bool wheels, bool planeFloat, bool hiddenPropeller, CountEngine countEngine) : b
             Type = 3;
         }
 
+
         public Seaplane(string info) : base(info)
         {
             string[] strs = info.Split(';');
@@ -69,7 +70,6 @@ bool wheels, bool planeFloat, bool hiddenPropeller, CountEngine countEngine) : b
                 Type = Convert.ToInt32(strs[9]);
             }
         }
-
 
         public override void DrawPlane(Graphics g)
         {
@@ -173,7 +173,7 @@ bool wheels, bool planeFloat, bool hiddenPropeller, CountEngine countEngine) : b
         {
             DopColor = color;
         }
-        
+
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + PropellerWidth + ";" + Wheels + ";" +

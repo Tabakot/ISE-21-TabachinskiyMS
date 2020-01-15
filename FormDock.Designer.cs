@@ -218,10 +218,12 @@
         private System.Windows.Forms.PictureBox pictureBoxDock;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Button buttonCreate;
+
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem saveLevelToolStripMenuItem;
