@@ -43,7 +43,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.buttonSort = new System.Windows.Forms.Button();
-
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDock)).BeginInit();
@@ -159,11 +158,11 @@
             // 
             // saveFileDialog
             // 
+            this.saveFileDialog.FileName = "Save";
             this.saveFileDialog.Filter = "config file | *.conf";
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "openFileDialog1";
             this.openFileDialog.Filter = "config file | *.conf";
             // 
             // buttonSort
