@@ -6,9 +6,11 @@ using System.Linq;
 
 namespace TechProgWin
 {
-    public class Dock<T> where T : class, ITransport
+    public class Dock<T, E> where T : class, ITransport where E : class, IEngine
     {
         private Dictionary<int, T> _places;
+
+        private Stack<T> removedPlane;
 
         private int _maxCount;
 
@@ -24,12 +26,12 @@ namespace TechProgWin
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            removedPlane = new Stack<T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
 
-
-        public static int operator +(Dock<T> p, T plane)
+        public static int operator +(Dock<T, E> p, T plane)
         {
             if (p._places.Count == p._maxCount)
             {
@@ -50,11 +52,12 @@ namespace TechProgWin
             return -1;
         }
 
-        public static T operator -(Dock<T> p, int index)
+        public static T operator -(Dock<T, E> p, int index)
         {
             if (!p.CheckFreePlace(index))
             {
                 T plane = p._places[index];
+                p.removedPlane.Push(plane);
                 p._places.Remove(index);
                 return plane;
             }
@@ -64,6 +67,11 @@ namespace TechProgWin
         private bool CheckFreePlace(int index)
         {
             return !_places.ContainsKey(index);
+        }
+
+        public T GetPlaneByKey(int key)
+        {
+            return _places.ContainsKey(key) ? _places[key] : null;
         }
 
         public void Draw(Graphics g)
@@ -127,6 +135,11 @@ namespace TechProgWin
                 }
 
             }
+        }
+
+        public void ClearLevel()
+        {
+            _places.Clear();
         }
     }
 }

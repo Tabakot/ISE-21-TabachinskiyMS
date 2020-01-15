@@ -9,7 +9,7 @@ namespace TechProgWin
     /// <summary>
     /// Класс-ошибка "Если на парковке уже заняты все места"
     /// </summary>
-    public class DockOverflowException : Exception
+    public class DockOverflowException : ArgumentOutOfRangeException
     {
         public DockOverflowException() : base("No free places")
         { }
