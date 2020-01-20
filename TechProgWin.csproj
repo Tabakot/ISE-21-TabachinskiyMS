@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dock.cs" />
+    <Compile Include="FormDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDock.Designer.cs">
+      <DependentUpon>FormDock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plane.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Direction.cs" />
@@ -59,6 +66,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seaplane.cs" />
+    <EmbeddedResource Include="FormDock.resx">
+      <DependentUpon>FormDock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPlane.resx">
       <DependentUpon>FormPlane.cs</DependentUpon>
     </EmbeddedResource>
